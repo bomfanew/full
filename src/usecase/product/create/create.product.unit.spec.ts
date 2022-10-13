@@ -35,7 +35,7 @@ describe("Unit test create product use case", () => {
 
     input.name = "";
 
-    await expect(createProductUseCase.execute(input)).rejects.toThrow("Name is required");
+    await expect(createProductUseCase.execute(input)).rejects.toThrow("product: Name is required");
   });
 
   it("should thrown an error when price is missing", async () => {
@@ -45,6 +45,6 @@ describe("Unit test create product use case", () => {
     input.name = "Product 2"
     input.price = -1;
 
-    await expect(createProductUseCase.execute(input)).rejects.toThrow("Price must be greater than zero");
+    await expect(createProductUseCase.execute(input)).rejects.toThrow("product: price must be greater than or equal to 1");
   });
 });
